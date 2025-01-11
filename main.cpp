@@ -1,66 +1,15 @@
 #include <GL/glut.h>
 #include <math.h>
 
+float cameraAngleX = 0.0f;
+float cameraAngleY = 0.0f;
+float cameraDistance = 15.0f;
+int isDragging = 0; // Status mouse (dragging atau tidak)
+int lastX, lastY;   // Posisi terakhir mouse
+
 void init() {
     glClearColor(1.0, 1.0, 1.0, 1.0); // Latar belakang hitam
     glEnable(GL_DEPTH_TEST);           // Mengaktifkan depth test untuk tampilan 3D
-}
-
-void kotak(float x1,float y1,float z1,float x2,float y2,float z2){
-    //depan
-    glTexCoord2f(0.0, 0.0);
-    glVertex3f(x1,y1,z1);
-    glTexCoord2f(0.0, 1.0);
-    glVertex3f(x2,y1,z1);
-    glTexCoord2f(1.0, 1.0);
-    glVertex3f(x2,y2,z1);
-    glTexCoord2f(1.0, 0.0);
-    glVertex3f(x1,y2,z1);
-    //atas
-    glTexCoord2f(0.0, 0.0);
-    glVertex3f(x1,y2,z1);
-    glTexCoord2f(0.0, 1.0);
-    glVertex3f(x2,y2,z1);
-    glTexCoord2f(1.0, 1.0);
-    glVertex3f(x2,y2,z2);
-    glTexCoord2f(1.0, 0.0);
-    glVertex3f(x1,y2,z2);
-    //belakang
-    glTexCoord2f(0.0, 0.0);
-    glVertex3f(x1,y2,z2);
-    glTexCoord2f(0.0, 1.0);
-    glVertex3f(x2,y2,z2);
-    glTexCoord2f(1.0, 1.0);
-    glVertex3f(x2,y1,z2);
-    glTexCoord2f(1.0, 0.0);
-    glVertex3f(x1,y1,z2);
-    //bawah
-    glTexCoord2f(0.0, 0.0);
-    glVertex3f(x1,y1,z2);
-    glTexCoord2f(1.0, 0.0);
-    glVertex3f(x2,y1,z2);
-    glTexCoord2f(1.0, 1.0);
-    glVertex3f(x2,y1,z1);
-    glTexCoord2f(0.0, 1.0);
-    glVertex3f(x1,y1,z1);
-    //samping kiri
-    glTexCoord2f(0.0, 0.0);
-    glVertex3f(x1,y1,z1);
-    glTexCoord2f(1.0, 0.0);
-    glVertex3f(x1,y2,z1);
-    glTexCoord2f(1.0, 1.0);
-    glVertex3f(x1,y2,z2);
-    glTexCoord2f(0.0, 1.0);
-    glVertex3f(x1,y1,z2);
-    //samping kanan
-    glTexCoord2f(0.0, 0.0);
-    glVertex3f(x2,y1,z1);
-    glTexCoord2f(1.0, 0.0);
-    glVertex3f(x2,y2,z1);
-    glTexCoord2f(1.0, 1.0);
-    glVertex3f(x2,y2,z2);
-    glTexCoord2f(0.0, 1.0);
-    glVertex3f(x2,y1,z2);
 }
 
 void drawAxes() {
@@ -89,131 +38,80 @@ void drawAxes() {
 }
 
 void lahan(){
-    //antena router kiri
     glPushMatrix();
-    glBegin(GL_QUADS);
-    glColor3ub(97, 106, 107);
-    kotak(-15,0,-15,15,1,15);
-    glEnd();
+    glColor3f(0.3, 0.3, 0.3);
+    glScalef(20,0.2,20);
+    glutSolidCube(1);
+    glPopMatrix();
+}
+
+void lapang1(){
+    glPushMatrix();
+    glColor3f(0,0.6,0);
+    glScalef(1.1,0.15,7.5);
+    glutSolidCube(1);
+    glPopMatrix();
+}
+
+void lapang2(){
+    glPushMatrix();
+    glColor3f(0,0.7,0);
+    glScalef(1.1,0.15,7.5);
+    glutSolidCube(1);
     glPopMatrix();
 }
 
 void lapang(){
-    glPushMatrix();
-    glBegin(GL_QUADS);
-    glColor3f(0.0f,0.6f,0.0f);
-    kotak(-5.5,1,-3.25,5.5,1.02,3.25);
-    glEnd();
-    glPopMatrix();
+    float x1 = 4.95;
+    float x2 = 3.85;
+    for (int i=0; i<5; i++){
+        glPushMatrix();
+        glTranslatef(x1,0.2,0);
+        lapang1();
+        glPopMatrix();
+        x1 -= 2.2;
+    }
+    for (int i=0; i<5; i++){
+        glPushMatrix();
+        glTranslatef(x2,0.2,0);
+        lapang2();
+        glPopMatrix();
+        x2 -= 2.2;
+    }
 }
 
 void karpetOut(){
     glPushMatrix();
-    glBegin(GL_QUADS);
-    glColor3f(0.0f,0.0f,0.7f);
-    kotak(-6,1,-3.25,6.01,1.025,-3.75);
-    kotak(-6,1,3.25,6.01,1.025,3.75);
-    kotak(-5.5,1,-3.25,-6,1.025,3.25);
-    kotak(5.5,1,-3.25,6,1.025,3.25);
-    glEnd();
+    
     glPopMatrix();
 }
 
 void papanBoard(){
     glPushMatrix();
-    glBegin(GL_QUADS);
-    glColor3f(0.8f,0.8f,0.8f);
-    kotak(-6,1,-3.75,6.01,1.1,-3.76);
-    kotak(-6,1,3.75,6.01,1.1,3.76);
-    kotak(-6,1,-3.76,-6.01,1.1,3.76);
-    kotak(6,1,-3.76,6.01,1.1,3.76);
-    glEnd();
+    
     glPopMatrix();
 }
 
 void tribunTimur(){
     glPushMatrix();
-    glBegin(GL_QUADS);
-    glColor3f(0.5f,0.5f,0.5f);
-    kotak(-6,1,-3.8,6.01,1.05,-5.8);
-    glEnd();
-
-    glBegin(GL_QUADS);
-    glColor3f(0.0f,0.0f,0.05f);
-    kotak(-6,1.05,-3.9,6.01,1.1,-3.98);
-    glColor3f(0.0f,0.0f,0.1f);
-    kotak(-6,1.1,-3.98,6.01,1.15,-4.06);
-    glColor3f(0.0f,0.0f,0.15f);
-    kotak(-6,1.15,-4.06,6.01,1.2,-4.14);
-    glColor3f(0.0f,0.0f,0.2f);
-    kotak(-6,1.2,-4.14,6.01,1.25,-4.22);
-    glColor3f(0.0f,0.0f,0.25f);
-    kotak(-6,1.25,-4.22,6.01,1.3,-4.3);
-    glColor3f(0.0f,0.0f,0.3f);
-    kotak(-6,1.3,-4.3,6.01,1.35,-4.38);
-    glColor3f(0.0f,0.0f,0.35f);
-    kotak(-6,1.35,-4.38,6.01,1.4,-4.46);
-    glColor3f(0.0f,0.0f,0.4f);
-    kotak(-6,1.4,-4.46,6.01,1.45,-4.54);
-    glColor3f(0.0f,0.0f,0.45f);
-    kotak(-6,1.45,-4.54,6.01,1.5,-4.62);
-    glColor3f(0.0f,0.0f,0.5f);
-    kotak(-6,1.5,-4.62,6.01,1.55,-4.7);
-    glEnd();
+    
     glPopMatrix();
 }
 void tribunBarat(){
     glPushMatrix();
-    glBegin(GL_QUADS);
-    glColor3f(0.5f,0.5f,0.5f);
-    kotak(-6,1,3.8,6.01,1.1,5.8);
-
-    glBegin(GL_QUADS);
-    glColor3f(0.0f,0.0f,0.05f);
-    kotak(-6,1.05,3.9,6.01,1.1,3.98);
-    glColor3f(0.0f,0.0f,0.1f);
-    kotak(-6,1.1,3.98,6.01,1.15,4.06);
-    glColor3f(0.0f,0.0f,0.15f);
-    kotak(-6,1.15,4.06,6.01,1.2,4.14);
-    glColor3f(0.0f,0.0f,0.2f);
-    kotak(-6,1.2,4.14,6.01,1.25,4.22);
-    glColor3f(0.0f,0.0f,0.25f);
-    kotak(-6,1.25,4.22,6.01,1.3,4.3);
-    glColor3f(0.0f,0.0f,0.3f);
-    kotak(-6,1.3,4.3,6.01,1.35,4.38);
-    glColor3f(0.0f,0.0f,0.35f);
-    kotak(-6,1.35,4.38,6.01,1.4,4.46);
-    glColor3f(0.0f,0.0f,0.4f);
-    kotak(-6,1.4,4.46,6.01,1.45,4.54);
-    glColor3f(0.0f,0.0f,0.45f);
-    kotak(-6,1.45,4.54,6.01,1.5,4.62);
-    glColor3f(0.0f,0.0f,0.5f);
-    kotak(-6,1.5,4.62,6.01,1.55,4.7);
-    glEnd();
+    
     glPopMatrix();
 }
 
 void tribunSelatan(){
     glPushMatrix();
-    glBegin(GL_QUADS);
-    glColor3f(0.5f,0.5f,0.5f);
-    kotak(-6.04,1,-3.76,-8.04,1.1,3.76);
-
-    glBegin(GL_QUADS);
-    glColor3f(0.0f,0.0f,0.05f);
-    kotak(-6.14,1.1,-3.76,-6.22,1.15,3.76);
-    glColor3f(0.0f,0.0f,0.1f);
-    kotak(-6.3,1.15,-3.76,-6.38,1.2,3.76);
-    glEnd();
+    
     glPopMatrix();
 }
 
 void tribunUtara(){
     glPushMatrix();
-    glBegin(GL_QUADS);
-    glColor3f(0.5f,0.5f,0.5f);
-    kotak(6.04,1,-3.76,8.04,1.1,3.76);
-    glEnd();
+    
     glPopMatrix();
 }
 
@@ -221,10 +119,14 @@ void display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
 
-    // Menggunakan posisi dan target kamera yang telah diupdate
-    gluLookAt(9, 7, 7,     // Posisi kamera
-              0, 0, 0,      // Titik yang dilihat
-              0.0, 1.0, 0.0);                // Arah atas // Arah atas
+    // Mengatur kamera menggunakan sudut dan jarak
+    float eyeX = cameraDistance * sin(cameraAngleX) * cos(cameraAngleY);
+    float eyeY = cameraDistance * sin(cameraAngleY);
+    float eyeZ = cameraDistance * cos(cameraAngleX) * cos(cameraAngleY);
+
+    gluLookAt(eyeX, eyeY, eyeZ,  // Posisi kamera
+              0, 0, 0,           // Titik yang dilihat
+              0.0, 1.0, 0.0);    // Arah atas
 
     drawAxes();
     lahan();
@@ -247,6 +149,39 @@ void reshape(int w, int h) {
     glMatrixMode(GL_MODELVIEW);
 }
 
+void mouseMotion(int x, int y) {
+    if (isDragging) {
+        // Perhitungan perubahan sudut berdasarkan pergerakan mouse
+        float deltaX = (x - lastX) * 0.005f;
+        float deltaY = (y - lastY) * 0.005f;
+
+        cameraAngleX += deltaX;
+        cameraAngleY += deltaY;
+
+        // Membatasi sudut vertikal agar tidak melewati batas tertentu
+        if (cameraAngleY > 1.5f) cameraAngleY = 1.5f;
+        if (cameraAngleY < -1.5f) cameraAngleY = -1.5f;
+
+        lastX = x;
+        lastY = y;
+
+        glutPostRedisplay();
+    }
+}
+
+void mouse(int button, int state, int x, int y) {
+    if (button == GLUT_LEFT_BUTTON) {
+        if (state == GLUT_DOWN) {
+            isDragging = 1;
+            lastX = x;
+            lastY = y;
+        } else if (state == GLUT_UP) {
+            isDragging = 0;
+        }
+    }
+}
+
+
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
@@ -257,6 +192,8 @@ int main(int argc, char** argv) {
 
     glutDisplayFunc(display);
     glutReshapeFunc(reshape);
+    glutMouseFunc(mouse);
+    glutMotionFunc(mouseMotion);
 
     glutMainLoop();
     return 0;
