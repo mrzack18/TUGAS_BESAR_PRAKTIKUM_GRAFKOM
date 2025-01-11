@@ -95,7 +95,34 @@ void lapang()
 void karpetOut()
 {
     glPushMatrix();
-
+    glColor3f(0,0,0.7);
+    glTranslatef(0,0.2,4);
+    glScalef(12, 0.15, 0.5);
+    glutSolidCube(1);
+    glPopMatrix();
+    glPushMatrix();
+    glColor3f(0,0,0.7);
+    glTranslatef(0,0.2,-4);
+    glScalef(12, 0.15, 0.5);
+    glutSolidCube(1);
+    glPopMatrix();
+    glPushMatrix();
+    glColor3f(0,0,0.7);
+    glTranslatef(0,0.2,-4);
+    glScalef(12, 0.15, 0.5);
+    glutSolidCube(1);
+    glPopMatrix();
+    glPushMatrix();
+    glColor3f(0,0,0.7);
+    glTranslatef(-5.75,0.2,0);
+    glScalef(0.5, 0.15, 7.5);
+    glutSolidCube(1);
+    glPopMatrix();
+    glPushMatrix();
+    glColor3f(0,0,0.7);
+    glTranslatef(5.75,0.2,0);
+    glScalef(0.5, 0.15, 7.5);
+    glutSolidCube(1);
     glPopMatrix();
 }
 
