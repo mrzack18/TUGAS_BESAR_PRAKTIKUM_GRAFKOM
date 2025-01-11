@@ -180,6 +180,46 @@ void awan()
     glPopMatrix();
 }
 
+void garisLapangan() {
+    glLineWidth(2.0);
+    glColor3f(1.0f, 1.0f, 1.0f); // Warna putih untuk garis lapangan
+
+    glBegin(GL_LINES);
+
+    // Garis luar lapangan (persegi panjang)
+    glVertex3f(-5.5f, 0.35f, -3.75f); glVertex3f(5.5f, 0.35f, -3.75f); // Garis bawah
+    glVertex3f(5.5f, 0.35f, -3.75f); glVertex3f(5.5f, 0.35f, 3.75f);   // Garis kanan
+    glVertex3f(5.5f, 0.35f, 3.75f); glVertex3f(-5.5f, 0.35f, 3.75f);   // Garis atas
+    glVertex3f(-5.5f, 0.35f, 3.75f); glVertex3f(-5.5f, 0.35f, -3.75f); // Garis kiri
+
+    // Garis tengah
+    glVertex3f(0.0f, 0.35f, -3.75f); glVertex3f(0.0f, 0.35f, 3.75f);   // Garis tengah vertikal
+
+    // Kotak Penalti Kiri
+    glVertex3f(-4.0f, 0.35f, -2.0f); glVertex3f(-4.0f, 0.35f, 2.0f);   // Garis vertikal kiri
+    glVertex3f(-4.0f, 0.35f, -2.0f); glVertex3f(-5.5f, 0.35f, -2.0f);  // Garis horizontal atas
+    glVertex3f(-4.0f, 0.35f, 2.0f); glVertex3f(-5.5f, 0.35f, 2.0f);    // Garis horizontal bawah
+
+    // Kotak Penalti Kanan
+    glVertex3f(4.0f, 0.35f, -2.0f); glVertex3f(4.0f, 0.35f, 2.0f);     // Garis vertikal kanan
+    glVertex3f(4.0f, 0.35f, -2.0f); glVertex3f(5.5f, 0.35f, -2.0f);    // Garis horizontal atas
+    glVertex3f(4.0f, 0.35f, 2.0f); glVertex3f(5.5f, 0.35f, 2.0f);      // Garis horizontal bawah
+
+    glEnd();
+
+    // Lingkaran tengah
+    glBegin(GL_LINE_LOOP);
+    float radius = 1.0f; // Radius lingkaran
+    int segments = 100;  // Jumlah segmen untuk membuat lingkaran halus
+    for (int i = 0; i < segments; i++) {
+        float angle = 2.0f * M_PI * i / segments; // Sudut tiap segmen
+        float x = radius * cos(angle);
+        float z = radius * sin(angle);
+        glVertex3f(x, 0.35f, z); // Y tetap untuk menjaga lingkaran di permukaan
+    }
+    glEnd();
+}
+
 void keyboard(unsigned char key, int x, int y)
 {
     float step = 0.1f;     // Langkah translasi
@@ -235,6 +275,7 @@ void display()
     tribunUtara();
     bola();
     awan();
+    garisLapangan();
 
     glutSwapBuffers();
 }
