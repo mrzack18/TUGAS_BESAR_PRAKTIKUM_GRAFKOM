@@ -232,6 +232,18 @@ void garisLapangan() {
     glVertex3f(4.0f, 0.35f, -2.0f); glVertex3f(5.5f, 0.35f, -2.0f);    // Garis horizontal atas
     glVertex3f(4.0f, 0.35f, 2.0f); glVertex3f(5.5f, 0.35f, 2.0f);      // Garis horizontal bawah
 
+    // Kotak Gawang Kiri (dekat titik penalti kiri)
+    glVertex3f(-5.5f, 0.35f, -1.0f); glVertex3f(-4.8f, 0.35f, -1.0f); // Garis atas horizontal
+    glVertex3f(-5.5f, 0.35f, 1.0f);  glVertex3f(-4.8f, 0.35f, 1.0f);  // Garis bawah horizontal
+    glVertex3f(-4.8f, 0.35f, -1.0f); glVertex3f(-4.8f, 0.35f, 1.0f);  // Garis vertikal kanan
+    glVertex3f(-5.5f, 0.35f, -1.0f); glVertex3f(-5.5f, 0.35f, 1.0f);  // Garis vertikal kiri
+
+    // Kotak Gawang Kanan (dekat titik penalti kanan)
+    glVertex3f(5.5f, 0.35f, -1.0f);  glVertex3f(4.8f, 0.35f, -1.0f);  // Garis atas horizontal
+    glVertex3f(5.5f, 0.35f, 1.0f);   glVertex3f(4.8f,0.35f, 1.0f);   // Garis bawah horizontal
+    glVertex3f(4.8f, 0.35f, -1.0f);  glVertex3f(4.8f, 0.35f, 1.0f);   // Garis vertikal kiri
+    glVertex3f(5.5f, 0.35f, -1.0f);  glVertex3f(5.5f, 0.35f, 1.0f);   // Garis vertikal kanan
+
     glEnd();
 
     // Lingkaran tengah
@@ -245,6 +257,67 @@ void garisLapangan() {
         glVertex3f(x, 0.35f, z); // Y tetap untuk menjaga lingkaran di permukaan
     }
     glEnd();
+}
+void gawangKiri()
+{
+    float tiangTebal = 0.05f;  // Ketebalan tiang
+    float tiangTinggi = 0.8f;  // Tinggi tiang vertikal
+    float tiangLebar = 1.2f;   // Lebar gawang (tiang horizontal atas)
+
+    // Tiang Vertikal Kiri
+    glPushMatrix();
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glTranslatef(-5.5f, tiangTinggi / 2.0f, -tiangLebar / 2.0f);
+    glScalef(tiangTebal, tiangTinggi, tiangTebal);
+    glutSolidCube(1);
+    glPopMatrix();
+
+    // Tiang Vertikal Kanan
+    glPushMatrix();
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glTranslatef(-5.5f, tiangTinggi / 2.0f, tiangLebar / 2.0f);
+    glScalef(tiangTebal, tiangTinggi, tiangTebal);
+    glutSolidCube(1);
+    glPopMatrix();
+
+    // Tiang Horizontal Atas
+    glPushMatrix();
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glTranslatef(-5.5f, tiangTinggi, 0.0f);
+    glScalef(tiangTebal, tiangTebal, tiangLebar);
+    glutSolidCube(1);
+    glPopMatrix();
+}
+
+void gawangKanan()
+{
+    float tiangTebal = 0.05f;  // Ketebalan tiang
+    float tiangTinggi = 0.8f;  // Tinggi tiang vertikal
+    float tiangLebar = 1.2f;   // Lebar gawang (tiang horizontal atas)
+
+    // Tiang Vertikal Kiri
+    glPushMatrix();
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glTranslatef(5.5f, tiangTinggi / 2.0f, -tiangLebar / 2.0f);
+    glScalef(tiangTebal, tiangTinggi, tiangTebal);
+    glutSolidCube(1);
+    glPopMatrix();
+
+    // Tiang Vertikal Kanan
+    glPushMatrix();
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glTranslatef(5.5f, tiangTinggi / 2.0f, tiangLebar / 2.0f);
+    glScalef(tiangTebal, tiangTinggi, tiangTebal);
+    glutSolidCube(1);
+    glPopMatrix();
+
+    // Tiang Horizontal Atas
+    glPushMatrix();
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glTranslatef(5.5f, tiangTinggi, 0.0f);
+    glScalef(tiangTebal, tiangTebal, tiangLebar);
+    glutSolidCube(1);
+    glPopMatrix();
 }
 
 void keyboard(unsigned char key, int x, int y)
@@ -303,7 +376,8 @@ void display()
     bola();
     awan();
     garisLapangan();
-
+    gawangKiri();
+    gawangKanan();
     glutSwapBuffers();
 }
 
