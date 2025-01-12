@@ -1,6 +1,8 @@
 #include <GL/glut.h>
 #include <math.h>
 
+bool showAxes = true; // Penanda untuk menampilkan atau menyembunyikan garis sumbu
+
 float bolaRotasi = 0.0f;  // Sudut rotasi bola
 float bolaPosisiX = 0.0f; // Posisi bola di sumbu X
 float bolaPosisiZ = 0.0f; // Posisi bola di sumbu Z
@@ -19,6 +21,9 @@ void init()
 
 void drawAxes()
 {
+     if (!showAxes) // Jika showAxes = false, keluar dari fungsi
+    return;
+
     glLineWidth(2.0);
 
     // Sumbu X (Merah)
@@ -95,32 +100,32 @@ void lapang()
 void karpetOut()
 {
     glPushMatrix();
-    glColor3f(0,0,0.7);
-    glTranslatef(0,0.2,4);
+    glColor3f(0, 0, 0.7);
+    glTranslatef(0, 0.2, 4);
     glScalef(12, 0.15, 0.5);
     glutSolidCube(1);
     glPopMatrix();
     glPushMatrix();
-    glColor3f(0,0,0.7);
-    glTranslatef(0,0.2,-4);
+    glColor3f(0, 0, 0.7);
+    glTranslatef(0, 0.2, -4);
     glScalef(12, 0.15, 0.5);
     glutSolidCube(1);
     glPopMatrix();
     glPushMatrix();
-    glColor3f(0,0,0.7);
-    glTranslatef(0,0.2,-4);
+    glColor3f(0, 0, 0.7);
+    glTranslatef(0, 0.2, -4);
     glScalef(12, 0.15, 0.5);
     glutSolidCube(1);
     glPopMatrix();
     glPushMatrix();
-    glColor3f(0,0,0.7);
-    glTranslatef(-5.75,0.2,0);
+    glColor3f(0, 0, 0.7);
+    glTranslatef(-5.75, 0.2, 0);
     glScalef(0.5, 0.15, 7.5);
     glutSolidCube(1);
     glPopMatrix();
     glPushMatrix();
-    glColor3f(0,0,0.7);
-    glTranslatef(5.75,0.2,0);
+    glColor3f(0, 0, 0.7);
+    glTranslatef(5.75, 0.2, 0);
     glScalef(0.5, 0.15, 7.5);
     glutSolidCube(1);
     glPopMatrix();
@@ -180,57 +185,97 @@ void bola()
     glPopMatrix();
 }
 
-void awan()
+void awanSatu()
 {
-    glPushMatrix();
+    glPushMatrix(); // Awan 1
     glColor3f(0.9f, 0.9f, 0.9f);
-    glTranslatef(-7.0f, 5.1f, 3.0f);
+    glTranslatef(-7.0f, 5.5f, 3.0f);
     glutSolidSphere(1.0, 10, 10);
     glPopMatrix();
 
-    glPushMatrix();
+    glPushMatrix(); // Awan 2
     glColor3f(0.9f, 0.9f, 0.9f);
-    glTranslatef(-6.5f, 5.3f, 2.4f);
+    glTranslatef(-6.5f, 5.9f, 2.4f);
     glutSolidSphere(1.15, 10, 11);
     glPopMatrix();
 
-    glPushMatrix();
+    glPushMatrix(); // Awan 3
     glColor3f(0.9f, 0.9f, 0.9f);
-    glTranslatef(-6.5f, 5.3f, 2.0f);
-    glutSolidSphere(1.2, 10, 11);
+    glTranslatef(-6.5f, 5.7f, 2.0f);
+    glutSolidSphere(1.1, 10, 11);
     glPopMatrix();
 
-    glPushMatrix();
+    glPushMatrix(); // Awan 4
     glColor3f(0.9f, 0.9f, 0.9f);
-    glTranslatef(-4.0f, 5.1f, 2.7f);
-    glutSolidSphere(1.0, 10, 10);
+    glTranslatef(-5.2f, 5.7f, 2.7f);
+    glutSolidSphere(1.5, 12, 10);
+    glPopMatrix();
+
+}
+
+void awanDua() 
+{
+    glPushMatrix(); // Awan 5
+    glColor3f(0.9f, 0.9f, 0.9f);
+    glTranslatef(5.3f, 5.7f, -3.2f);
+    glutSolidSphere(1.4, 12, 9.0);
+    glPopMatrix();
+
+    glPushMatrix(); // Awan 6
+    glColor3f(0.9f, 0.9f, 0.9f);
+    glTranslatef(4.0f, 5.7f, -3.0f);
+    glutSolidSphere(1.13, 12, 9.0);
+    glPopMatrix();
+
+    glPushMatrix(); // Awan 7
+    glColor3f(0.9f, 0.9f, 0.9f);
+    glTranslatef(6.5f, 5.7f, -3.0f);
+    glutSolidSphere(1.0, 12, 9.0);
+    glPopMatrix();
+
+    glPushMatrix(); // Awan 8
+    glColor3f(0.9f, 0.9f, 0.9f);
+    glTranslatef(4.0f, 6.0f, -3.0f);
+    glutSolidSphere(1.0, 12, 9.0);
     glPopMatrix();
 }
 
-void garisLapangan() {
+void garisLapangan()
+{
     glLineWidth(2.0);
     glColor3f(1.0f, 1.0f, 1.0f); // Warna putih untuk garis lapangan
 
     glBegin(GL_LINES);
 
     // Garis luar lapangan (persegi panjang)
-    glVertex3f(-5.5f, 0.35f, -3.75f); glVertex3f(5.5f, 0.35f, -3.75f); // Garis bawah
-    glVertex3f(5.5f, 0.35f, -3.75f); glVertex3f(5.5f, 0.35f, 3.75f);   // Garis kanan
-    glVertex3f(5.5f, 0.35f, 3.75f); glVertex3f(-5.5f, 0.35f, 3.75f);   // Garis atas
-    glVertex3f(-5.5f, 0.35f, 3.75f); glVertex3f(-5.5f, 0.35f, -3.75f); // Garis kiri
+    glVertex3f(-5.5f, 0.35f, -3.75f);
+    glVertex3f(5.5f, 0.35f, -3.75f); // Garis bawah
+    glVertex3f(5.5f, 0.35f, -3.75f);
+    glVertex3f(5.5f, 0.35f, 3.75f); // Garis kanan
+    glVertex3f(5.5f, 0.35f, 3.75f);
+    glVertex3f(-5.5f, 0.35f, 3.75f); // Garis atas
+    glVertex3f(-5.5f, 0.35f, 3.75f);
+    glVertex3f(-5.5f, 0.35f, -3.75f); // Garis kiri
 
     // Garis tengah
-    glVertex3f(0.0f, 0.35f, -3.75f); glVertex3f(0.0f, 0.35f, 3.75f);   // Garis tengah vertikal
+    glVertex3f(0.0f, 0.35f, -3.75f);
+    glVertex3f(0.0f, 0.35f, 3.75f); // Garis tengah vertikal
 
     // Kotak Penalti Kiri
-    glVertex3f(-4.0f, 0.35f, -2.0f); glVertex3f(-4.0f, 0.35f, 2.0f);   // Garis vertikal kiri
-    glVertex3f(-4.0f, 0.35f, -2.0f); glVertex3f(-5.5f, 0.35f, -2.0f);  // Garis horizontal atas
-    glVertex3f(-4.0f, 0.35f, 2.0f); glVertex3f(-5.5f, 0.35f, 2.0f);    // Garis horizontal bawah
+    glVertex3f(-4.0f, 0.35f, -2.0f);
+    glVertex3f(-4.0f, 0.35f, 2.0f); // Garis vertikal kiri
+    glVertex3f(-4.0f, 0.35f, -2.0f);
+    glVertex3f(-5.5f, 0.35f, -2.0f); // Garis horizontal atas
+    glVertex3f(-4.0f, 0.35f, 2.0f);
+    glVertex3f(-5.5f, 0.35f, 2.0f); // Garis horizontal bawah
 
     // Kotak Penalti Kanan
-    glVertex3f(4.0f, 0.35f, -2.0f); glVertex3f(4.0f, 0.35f, 2.0f);     // Garis vertikal kanan
-    glVertex3f(4.0f, 0.35f, -2.0f); glVertex3f(5.5f, 0.35f, -2.0f);    // Garis horizontal atas
-    glVertex3f(4.0f, 0.35f, 2.0f); glVertex3f(5.5f, 0.35f, 2.0f);      // Garis horizontal bawah
+    glVertex3f(4.0f, 0.35f, -2.0f);
+    glVertex3f(4.0f, 0.35f, 2.0f); // Garis vertikal kanan
+    glVertex3f(4.0f, 0.35f, -2.0f);
+    glVertex3f(5.5f, 0.35f, -2.0f); // Garis horizontal atas
+    glVertex3f(4.0f, 0.35f, 2.0f);
+    glVertex3f(5.5f, 0.35f, 2.0f); // Garis horizontal bawah
 
     // Kotak Gawang Kiri (dekat titik penalti kiri)
     glVertex3f(-5.5f, 0.35f, -1.0f); glVertex3f(-4.8f, 0.35f, -1.0f); // Garis atas horizontal
@@ -250,7 +295,8 @@ void garisLapangan() {
     glBegin(GL_LINE_LOOP);
     float radius = 1.0f; // Radius lingkaran
     int segments = 100;  // Jumlah segmen untuk membuat lingkaran halus
-    for (int i = 0; i < segments; i++) {
+    for (int i = 0; i < segments; i++)
+    {
         float angle = 2.0f * M_PI * i / segments; // Sudut tiap segmen
         float x = radius * cos(angle);
         float z = radius * sin(angle);
@@ -320,6 +366,74 @@ void gawangKanan()
     glPopMatrix();
 }
 
+void benchKiri() {
+    glColor3f(0.0f, 0.0f, 1.0f);
+
+    // Gambar bangku pemain di sisi kiri lapangan
+    for (int i = 0; i < 5; i++) {
+        glPushMatrix();
+        glTranslatef(-2.0f + i * 1.0f, 0.2f, -4.50f);   // Bangku kiri sejajar sisi lapangan
+        glScalef(0.4f, 0.3f, 0.5f);
+        glutSolidCube(1.0f);
+        glPopMatrix();
+    }
+
+    // Gambar atap pelindung
+    glPushMatrix();
+    glTranslatef(0.0f, 0.7f, -4.50f);  // Posisi atap di atas kursi kiri
+    glScalef(5.0f, 0.1f, 1.2f);      // Ukuran atap horizontal
+    glutSolidCube(1.0f);
+    glPopMatrix();
+    
+    glPushMatrix();
+    glTranslatef(-2.4f, 0.35f, -4.50f);  // Posisi tiang kiri
+    glScalef(0.1f, 0.7f, 0.1f);         // Ukuran tiang tipis vertikal
+    glutSolidCube(1.0f);
+    glPopMatrix();
+    
+    glPushMatrix();
+    glTranslatef(2.4f, 0.35f, -4.50f);  // Posisi tiang kanan
+    glScalef(0.1f, 0.7f, 0.1f);         // Ukuran tiang tipis vertikal
+    glutSolidCube(1.0f);
+    glPopMatrix();
+}
+
+void benchKanan() {
+    glColor3f(0.0f, 0.0f, 1.0f);
+
+    // Gambar bangku pemain di sisi kanan lapangan (berhadapan)
+    for (int i = 0; i < 5; i++) {
+        glPushMatrix();
+        glTranslatef(-2.0f + i * 1.0f, 0.2f, 4.50f);   // Posisi bangku kanan sejajar lapangan
+        glScalef(0.4f, 0.3f, 0.5f);
+        glutSolidCube(1.0f);
+        glPopMatrix();
+    }
+
+    // Gambar atap pelindung untuk bangku kanan
+    glPushMatrix();
+    glTranslatef(0.0f, 0.7f, 4.50f);  // Posisi atap di atas kursi kanan
+    glScalef(5.0f, 0.1f, 1.2f);      // Ukuran atap horizontal
+    glutSolidCube(1.0f);
+    glPopMatrix();
+
+    // Gambar tiang kiri bangku kanan
+    glPushMatrix();
+    glTranslatef(-2.4f, 0.35f, 4.50f);
+    glScalef(0.1f, 0.7f, 0.1f);
+    glutSolidCube(1.0f);
+    glPopMatrix();
+
+    // Gambar tiang kanan bangku kanan
+    glPushMatrix();
+    glTranslatef(2.4f, 0.35f, 4.50f);
+    glScalef(0.1f, 0.7f, 0.1f);
+    glutSolidCube(1.0f);
+    glPopMatrix();
+}
+
+
+
 void keyboard(unsigned char key, int x, int y)
 {
     float step = 0.1f;     // Langkah translasi
@@ -327,6 +441,9 @@ void keyboard(unsigned char key, int x, int y)
 
     switch (key)
     {
+    case 'x': // Toggle garis sumbu
+        showAxes = !showAxes; // Balik nilai showAxes
+        break;
     case 'w': // Bola maju
         bolaPosisiZ -= step;
         bolaRotasi += rotStep; // Rotasi saat maju
@@ -374,10 +491,13 @@ void display()
     tribunSelatan();
     tribunUtara();
     bola();
-    awan();
+    awanSatu();
+    awanDua();
     garisLapangan();
     gawangKiri();
     gawangKanan();
+    benchKiri();
+    benchKanan();
     glutSwapBuffers();
 }
 
