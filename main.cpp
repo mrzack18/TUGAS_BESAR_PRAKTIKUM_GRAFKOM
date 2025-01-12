@@ -21,8 +21,8 @@ void init()
 
 void drawAxes()
 {
-     if (!showAxes) // Jika showAxes = false, keluar dari fungsi
-    return;
+    if (!showAxes) // Jika showAxes = false, keluar dari fungsi
+        return;
 
     glLineWidth(2.0);
 
@@ -210,10 +210,9 @@ void awanSatu()
     glTranslatef(-5.2f, 5.7f, 2.7f);
     glutSolidSphere(1.5, 12, 10);
     glPopMatrix();
-
 }
 
-void awanDua() 
+void awanDua()
 {
     glPushMatrix(); // Awan 5
     glColor3f(0.9f, 0.9f, 0.9f);
@@ -300,7 +299,7 @@ void keyboard(unsigned char key, int x, int y)
 
     switch (key)
     {
-    case 'x': // Toggle garis sumbu
+    case 'x':                 // Toggle garis sumbu
         showAxes = !showAxes; // Balik nilai showAxes
         break;
     case 'w': // Bola maju
