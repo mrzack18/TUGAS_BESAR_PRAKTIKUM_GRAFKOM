@@ -191,28 +191,28 @@ void awanSatu()
 {
     glPushMatrix(); // Awan 1
     glColor3f(0.9f, 0.9f, 0.9f);
-    glTranslatef(-7.0f, 5.5f, 3.0f);
+    glTranslatef(-7.0f, 6.5f, 3.0f);
     glScalef(scaleAwan, scaleAwan, scaleAwan);
     glutSolidSphere(1.0, 10, 10);
     glPopMatrix();
 
     glPushMatrix(); // Awan 2
     glColor3f(0.9f, 0.9f, 0.9f);
-    glTranslatef(-6.5f, 5.9f, 2.4f);
+    glTranslatef(-6.5f, 6.9f, 2.4f);
     glScalef(scaleAwan, scaleAwan, scaleAwan);
     glutSolidSphere(1.15, 10, 11);
     glPopMatrix();
 
     glPushMatrix(); // Awan 3
     glColor3f(0.9f, 0.9f, 0.9f);
-    glTranslatef(-6.5f, 5.7f, 2.0f);
+    glTranslatef(-6.5f, 6.5f, 2.0f);
     glScalef(scaleAwan, scaleAwan, scaleAwan);
     glutSolidSphere(1.1, 10, 11);
     glPopMatrix();
 
     glPushMatrix(); // Awan 4
     glColor3f(0.9f, 0.9f, 0.9f);
-    glTranslatef(-5.2f, 5.7f, 2.7f);
+    glTranslatef(-5.2f, 6.5f, 2.7f);
     glScalef(scaleAwan, scaleAwan, scaleAwan);
     glutSolidSphere(1.5, 12, 10);
     glPopMatrix();
@@ -222,28 +222,28 @@ void awanDua()
 {
     glPushMatrix(); // Awan 5
     glColor3f(0.9f, 0.9f, 0.9f);
-    glTranslatef(5.3f, 5.7f, -3.2f);
+    glTranslatef(5.3f, 6.5f, -3.2f);
     glScalef(scaleAwan, scaleAwan, scaleAwan);
     glutSolidSphere(1.4, 12, 9.0);
     glPopMatrix();
 
     glPushMatrix(); // Awan 6
     glColor3f(0.9f, 0.9f, 0.9f);
-    glTranslatef(4.0f, 5.7f, -3.0f);
+    glTranslatef(4.0f, 6.5f, -3.0f);
     glScalef(scaleAwan, scaleAwan, scaleAwan);
     glutSolidSphere(1.13, 12, 9.0);
     glPopMatrix();
 
     glPushMatrix(); // Awan 7
     glColor3f(0.9f, 0.9f, 0.9f);
-    glTranslatef(6.5f, 5.7f, -3.0f);
+    glTranslatef(6.5f, 6.5f, -3.0f);
     glScalef(scaleAwan, scaleAwan, scaleAwan);
     glutSolidSphere(1.0, 12, 9.0);
     glPopMatrix();
 
     glPushMatrix(); // Awan 8
     glColor3f(0.9f, 0.9f, 0.9f);
-    glTranslatef(4.0f, 6.0f, -3.0f);
+    glTranslatef(4.0f, 6.8f, -3.0f);
     glScalef(scaleAwan, scaleAwan, scaleAwan);
     glutSolidSphere(1.0, 12, 9.0);
     glPopMatrix();
@@ -253,28 +253,28 @@ void awanTiga()
 {
     glPushMatrix(); // Awan 9
     glColor3f(0.9f, 0.9f, 0.9f);
-    glTranslatef(-5.0f, 5.7f, -3.2f);
+    glTranslatef(-5.0f, 6.5f, -3.2f);
     glScalef(scaleAwan, scaleAwan, scaleAwan);
     glutSolidSphere(1.4, 12, 9.0);
     glPopMatrix();
 
     glPushMatrix(); // Awan 10
     glColor3f(0.9f, 0.9f, 0.9f);
-    glTranslatef(-3.7f, 5.7f, -3.0f);
+    glTranslatef(-3.7f, 6.5f, -3.0f);
     glScalef(scaleAwan, scaleAwan, scaleAwan);
     glutSolidSphere(1.13, 12, 9.0);
     glPopMatrix();
 
     glPushMatrix(); // Awan 11
     glColor3f(0.9f, 0.9f, 0.9f);
-    glTranslatef(-6.2f, 5.7f, -3.0f);
+    glTranslatef(-6.2f, 6.5f, -3.0f);
     glScalef(scaleAwan, scaleAwan, scaleAwan);
     glutSolidSphere(1.0, 12, 9.0);
     glPopMatrix();
 
     glPushMatrix(); // Awan 12
     glColor3f(0.9f, 0.9f, 0.9f);
-    glTranslatef(-3.7f, 6.0f, -3.0f);
+    glTranslatef(-3.7f, 6.8f, -3.0f);
     glScalef(scaleAwan, scaleAwan, scaleAwan);
     glutSolidSphere(1.0, 12, 9.0);
     glPopMatrix();
@@ -284,30 +284,73 @@ void awanEmpat()
 {
     glPushMatrix(); // Awan 13
     glColor3f(0.9f, 0.9f, 0.9f);
-    glTranslatef(5.3f, 5.7f, 3.2f);
+    glTranslatef(5.3f, 6.5f, 3.2f);
     glScalef(scaleAwan, scaleAwan, scaleAwan);
     glutSolidSphere(1.4, 12, 9.0);
     glPopMatrix();
 
     glPushMatrix(); // Awan 14
     glColor3f(0.9f, 0.9f, 0.9f);
-    glTranslatef(4.0f, 5.7f, 3.0f);
+    glTranslatef(4.0f, 6.5f, 3.0f);
     glScalef(scaleAwan, scaleAwan, scaleAwan);
     glutSolidSphere(1.13, 12, 9.0);
     glPopMatrix();
 
     glPushMatrix(); // Awan 15
     glColor3f(0.9f, 0.9f, 0.9f);
-    glTranslatef(6.5f, 5.7f, 3.0f);
+    glTranslatef(6.5f, 6.5f, 3.0f);
     glScalef(scaleAwan, scaleAwan, scaleAwan);
     glutSolidSphere(1.0, 12, 9.0);
     glPopMatrix();
 
     glPushMatrix(); // Awan 16
     glColor3f(0.9f, 0.9f, 0.9f);
-    glTranslatef(4.0f, 6.0f, 3.0f);
+    glTranslatef(4.0f, 6.8f, 3.0f);
     glScalef(scaleAwan, scaleAwan, scaleAwan);
     glutSolidSphere(1.0, 12, 9.0);
+    glPopMatrix();
+}
+
+void pohon()
+{
+    glPushMatrix();
+    glColor3f(0.5, 0.3, 0.0);
+    glTranslatef(0, 0.15, 0);
+    glScalef(0.3, 1.0, 0.3);
+    glutSolidCube(1);
+    glPopMatrix();
+    glPushMatrix();
+    glColor3f(0, 0.5, 0);
+    glTranslatef(0, 1.5, 0);
+    glScalef(1.0, 1.0, 1.0);
+    glutSolidSphere(1, 10, 10);
+    glPopMatrix();
+}
+
+void pohonSudut()
+{
+    // Pohon di sudut kiri depan
+    glPushMatrix();
+    glTranslatef(-6.1, 0.5, 4.3);
+    pohon();
+    glPopMatrix();
+
+    // Pohon di sudut kanan depan
+    glPushMatrix();
+    glTranslatef(6.1, 0.5, 4.3);
+    pohon();
+    glPopMatrix();
+
+    // Pohon di sudut kiri belakang
+    glPushMatrix();
+    glTranslatef(-6.1, 0.5, -4.3);
+    pohon();
+    glPopMatrix();
+
+    // Pohon di sudut kanan belakang
+    glPushMatrix();
+    glTranslatef(6.1, 0.5, -4.3);
+    pohon();
     glPopMatrix();
 }
 
@@ -514,6 +557,7 @@ void display()
     awanDua();
     awanTiga();
     awanEmpat();
+    pohonSudut(); // Tambahkan pohon di sudut
     garisLapangan();
     gawangKiri();
     gawangKanan();
