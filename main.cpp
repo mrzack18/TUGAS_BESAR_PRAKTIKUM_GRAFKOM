@@ -129,26 +129,26 @@ void papanBoard()
 {
     glPushMatrix();
     glColor3f(0.9,0.9,0.9);
-    glTranslatef(0,0.37,-4.3);
-    glScalef(12.2,0.5,0.1);
+    glTranslatef(0,0.37,-4.255);
+    glScalef(12.02,0.5,0.01);
     glutSolidCube(1);
     glPopMatrix();
     glPushMatrix();
     glColor3f(0.9,0.9,0.9);
-    glTranslatef(0,0.37,4.3);
-    glScalef(12.2,0.5,0.1);
+    glTranslatef(0,0.37,4.255);
+    glScalef(12.02,0.5,0.01);
     glutSolidCube(1);
     glPopMatrix();
     glPushMatrix();
     glColor3f(0.9,0.9,0.9);
-    glTranslatef(-6.05,0.37,0);
-    glScalef(0.1,0.5,8.5);
+    glTranslatef(-6.005,0.37,0);
+    glScalef(0.01,0.5,8.5);
     glutSolidCube(1);
     glPopMatrix();
     glPushMatrix();
     glColor3f(0.9,0.9,0.9);
-    glTranslatef(6.05,0.37,0);
-    glScalef(0.1,0.5,8.5);
+    glTranslatef(6.005,0.37,0);
+    glScalef(0.01,0.5,8.5);
     glutSolidCube(1);
     glPopMatrix();
 }
