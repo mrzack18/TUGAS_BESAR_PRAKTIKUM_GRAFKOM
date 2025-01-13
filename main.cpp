@@ -108,12 +108,6 @@ void karpetOut()
     glPopMatrix();
     glPushMatrix();
     glColor3f(0,0,0.7);
-    glTranslatef(0,0.2,-4);
-    glScalef(12, 0.15, 0.5);
-    glutSolidCube(1);
-    glPopMatrix();
-    glPushMatrix();
-    glColor3f(0,0,0.7);
     glTranslatef(-5.75,0.2,0);
     glScalef(0.5, 0.15, 7.5);
     glutSolidCube(1);
@@ -129,7 +123,28 @@ void karpetOut()
 void papanBoard()
 {
     glPushMatrix();
-
+    glColor3f(0.9,0.9,0.9);
+    glTranslatef(0,0.37,-4.3);
+    glScalef(12.2,0.5,0.1);
+    glutSolidCube(1);
+    glPopMatrix();
+    glPushMatrix();
+    glColor3f(0.9,0.9,0.9);
+    glTranslatef(0,0.37,4.3);
+    glScalef(12.2,0.5,0.1);
+    glutSolidCube(1);
+    glPopMatrix();
+    glPushMatrix();
+    glColor3f(0.9,0.9,0.9);
+    glTranslatef(-6.05,0.37,0);
+    glScalef(0.1,0.5,8.5);
+    glutSolidCube(1);
+    glPopMatrix();
+    glPushMatrix();
+    glColor3f(0.9,0.9,0.9);
+    glTranslatef(6.05,0.37,0);
+    glScalef(0.1,0.5,8.5);
+    glutSolidCube(1);
     glPopMatrix();
 }
 
@@ -354,6 +369,22 @@ void mouse(int button, int state, int x, int y)
         {
             isDragging = 0;
         }
+    }
+
+    // Zoom in dan zoom out menggunakan scroll mouse
+    if (button == 3) // Scroll ke atas
+    {
+        cameraDistance -= 0.5f;
+        if (cameraDistance < 2.0f) // Membatasi zoom in
+            cameraDistance = 2.0f;
+        glutPostRedisplay();
+    }
+    else if (button == 4) // Scroll ke bawah
+    {
+        cameraDistance += 0.5f;
+        if (cameraDistance > 50.0f) // Membatasi zoom out
+            cameraDistance = 50.0f;
+        glutPostRedisplay();
     }
 }
 
