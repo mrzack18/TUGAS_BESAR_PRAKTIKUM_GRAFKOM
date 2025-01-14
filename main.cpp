@@ -129,55 +129,155 @@ void papanBoard()
 {
     glPushMatrix();
     glColor3f(0.9,0.9,0.9);
-    glTranslatef(0,0.37,-4.255);
-    glScalef(12.02,0.5,0.01);
+    glTranslatef(0,0.335,-4.255);
+    glScalef(12.02,0.12,0.01);
     glutSolidCube(1);
     glPopMatrix();
     glPushMatrix();
     glColor3f(0.9,0.9,0.9);
-    glTranslatef(0,0.37,4.255);
-    glScalef(12.02,0.5,0.01);
+    glTranslatef(0,0.335,4.255);
+    glScalef(12.02,0.12,0.01);
     glutSolidCube(1);
     glPopMatrix();
     glPushMatrix();
     glColor3f(0.9,0.9,0.9);
-    glTranslatef(-6.005,0.37,0);
-    glScalef(0.01,0.5,8.5);
+    glTranslatef(-6.005,0.335,0);
+    glScalef(0.01,0.12,8.5);
     glutSolidCube(1);
     glPopMatrix();
     glPushMatrix();
     glColor3f(0.9,0.9,0.9);
-    glTranslatef(6.005,0.37,0);
-    glScalef(0.01,0.5,8.5);
+    glTranslatef(6.005,0.335,0);
+    glScalef(0.01,0.12,8.5);
     glutSolidCube(1);
     glPopMatrix();
 }
 
 void tribunTimur()
 {
+    float yTranslasi = 0.465f;
+    float zTranslasi = -6.31f;
+    float zSkala = 2.9;
+    float color = 0.0f;
     glPushMatrix();
-
+    glColor3f(0.4,0.4,0.4);
+    glTranslatef(0,0.23,-6.01);
+    glScalef(12.02,0.2,3.5);
+    glutSolidCube(1);
     glPopMatrix();
+    glPushMatrix();
+    glColor3f(0.4,0.4,0.4);
+    glTranslatef(0,0.38,-6.26);
+    glScalef(12.02,0.1,3);
+    glutSolidCube(1);
+    glPopMatrix();
+    for(int i=0;i<25;i++){
+        glPushMatrix();
+        glColor3f(0,0,color);
+        glTranslatef(0,yTranslasi,zTranslasi);
+        glScalef(12.02,0.07,zSkala);
+        glutSolidCube(1);
+        glPopMatrix();
+        yTranslasi += 0.07;
+        zTranslasi -= 0.05;
+        zSkala -= 0.1;
+        color += 0.05;
+    }
 }
 void tribunBarat()
 {
+    float yTranslasi = 0.465f;
+    float zTranslasi = 6.31f;
+    float zSkala = 2.9;
+    float color = 0.0f;
     glPushMatrix();
-
+    glColor3f(0.4,0.4,0.4);
+    glTranslatef(0,0.23,6.01);
+    glScalef(12.02,0.2,3.5);
+    glutSolidCube(1);
     glPopMatrix();
+    glPushMatrix();
+    glColor3f(0.4,0.4,0.4);
+    glTranslatef(0,0.38,6.26);
+    glScalef(12.02,0.1,3);
+    glutSolidCube(1);
+    glPopMatrix();
+    for(int i=0;i<25;i++){
+        glPushMatrix();
+        glColor3f(0,0,color);
+        glTranslatef(0,yTranslasi,zTranslasi);
+        glScalef(12.02,0.07,zSkala);
+        glutSolidCube(1);
+        glPopMatrix();
+        yTranslasi += 0.07;
+        zTranslasi += 0.05;
+        zSkala -= 0.1;
+        color += 0.05;
+    }
 }
 
 void tribunSelatan()
 {
+    float yTranslasi = 0.465f;
+    float xTranslasi = -8.06f;
+    float xSkala = 2.9;
+    float color = 0.0f;
     glPushMatrix();
-
+    glColor3f(0.4,0.4,0.4);
+    glTranslatef(-7.76,0.23,0);
+    glScalef(3.5,0.2,8.52);
+    glutSolidCube(1);
     glPopMatrix();
+    glPushMatrix();
+    glColor3f(0.4,0.4,0.4);
+    glTranslatef(-8.01,0.38,0);
+    glScalef(3,0.1,8.52);
+    glutSolidCube(1);
+    glPopMatrix();
+    for(int i=0;i<25;i++){
+        glPushMatrix();
+        glColor3f(0,0,color);
+        glTranslatef(xTranslasi,yTranslasi,0);
+        glScalef(xSkala,0.07,8.52);
+        glutSolidCube(1);
+        glPopMatrix();
+        yTranslasi += 0.07;
+        xTranslasi -= 0.05;
+        xSkala -= 0.1;
+        color += 0.05;
+    }
 }
 
 void tribunUtara()
 {
+    float yTranslasi = 0.465f;
+    float xTranslasi = 8.06f;
+    float xSkala = 2.9;
+    float color = 0.0f;
     glPushMatrix();
-
+    glColor3f(0.4,0.4,0.4);
+    glTranslatef(7.76,0.23,0);
+    glScalef(3.5,0.2,8.52);
+    glutSolidCube(1);
     glPopMatrix();
+    glPushMatrix();
+    glColor3f(0.4,0.4,0.4);
+    glTranslatef(8.01,0.38,0);
+    glScalef(3,0.1,8.52);
+    glutSolidCube(1);
+    glPopMatrix();
+    for(int i=0;i<25;i++){
+        glPushMatrix();
+        glColor3f(0,0,color);
+        glTranslatef(xTranslasi,yTranslasi,0);
+        glScalef(xSkala,0.07,8.52);
+        glutSolidCube(1);
+        glPopMatrix();
+        yTranslasi += 0.07;
+        xTranslasi += 0.05;
+        xSkala -= 0.1;
+        color += 0.05;
+    }
 }
 
 void bola()
@@ -197,6 +297,14 @@ void bola()
     glColor3f(0.0f, 0.0f, 0.0f);
     glutWireSphere(0.07, 10, 10);
 
+    glPopMatrix();
+}
+
+void matahari(){
+    glPushMatrix();
+    glColor3f(1.0f, 1.0f, 0.0f);
+    glTranslatef(0.0f, 10.0f, 0.0f);
+    glutSolidSphere(1.0, 10, 10);
     glPopMatrix();
 }
 
@@ -438,6 +546,7 @@ void display()
     tribunSelatan();
     tribunUtara();
     bola();
+    matahari();
     awanSatu();
     awanDua();
     garisLapangan();
