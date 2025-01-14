@@ -323,7 +323,7 @@ void pohon()
     glColor3f(0, 0.5, 0);
     glTranslatef(0, 1.5, 0);
     glScalef(1.0, 1.0, 1.0);
-    glutSolidSphere(1, 10, 10);
+    glutSolidSphere(1, 10, 7.0);
     glPopMatrix();
 }
 
