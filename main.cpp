@@ -139,25 +139,19 @@ void lapangOut()
 void papanIklan()
 {
     glPushMatrix();
-    glColor3f(0.9,0.9,0.9);
+    glColor3f(0.7,0,0);
     glTranslatef(0,0.335,-4.255);
     glScalef(12.02,0.12,0.01);
     glutSolidCube(1);
     glPopMatrix();
-    // glPushMatrix();
-    // glColor3f(0.9,0.9,0.9);
-    // glTranslatef(0,0.335,4.255);
-    // glScalef(12.02,0.12,0.01);
-    // glutSolidCube(1);
-    // glPopMatrix();
     glPushMatrix();
-    glColor3f(0.9,0.9,0.9);
+    glColor3f(0.7,0,0);
     glTranslatef(-6.005,0.335,0);
     glScalef(0.01,0.12,8.5);
     glutSolidCube(1);
     glPopMatrix();
     glPushMatrix();
-    glColor3f(0.9,0.9,0.9);
+    glColor3f(0.7,0,0);
     glTranslatef(6.005,0.335,0);
     glScalef(0.01,0.12,8.5);
     glutSolidCube(1);
@@ -332,13 +326,13 @@ void atapTribun(){
 void banchPemain(){
     glPushMatrix();
     glColor3f(0.8,0.8,0.8);
-    glTranslatef(3.92,0.44,-4.656);
+    glTranslatef(3.92,0.44,4.656);
     glScalef(2,0.3,0.2);
     glutSolidCube(1);
     glPopMatrix();
     glPushMatrix();
     glColor3f(0.8,0.8,0.8);
-    glTranslatef(-3.92,0.44,-4.656);
+    glTranslatef(-3.92,0.44,4.656);
     glScalef(2,0.3,0.2);
     glutSolidCube(1);
     glPopMatrix();
