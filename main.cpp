@@ -293,11 +293,11 @@ void bola()
 
     // Bola utama (warna putih)
     glColor3f(1.0f, 1.0f, 1.0f);
-    glutSolidSphere(0.08, 20, 20);
+    glutSolidSphere(0.05, 20, 20);
 
     // Garis bola (wireframe)
     glColor3f(0.0f, 0.0f, 0.0f);
-    glutWireSphere(0.07, 10, 10);
+    glutWireSphere(0.05, 10, 10);
 
     glPopMatrix();
 }
@@ -613,7 +613,7 @@ void gawangKanan()
 
 void benchKiri()
 {
-glColor3f(1.0f, 1.0f, 1.0f);
+    glColor3f(1.0f, 1.0f, 1.0f);
 
     // Gambar bangku pemain di sisi kiri lapangan
     for (int i = 0; i < 5; i++) {
@@ -627,18 +627,18 @@ glColor3f(1.0f, 1.0f, 1.0f);
     // Gambar atap pelindung
     glPushMatrix();
     glTranslatef(0.0f, 0.7f, -4.50f);  // Posisi atap di atas kursi kiri
-    glScalef(5.0f, 0.1f, 1.2f);      // Ukuran atap horizontal
+    glScalef(3.0f, 0.1f, 1.0f);      // Ukuran atap horizontal lebih kecil
     glutSolidCube(1.0f);
     glPopMatrix();
     
     glPushMatrix();
-    glTranslatef(-2.4f, 0.35f, -4.50f);  // Posisi tiang kiri
+    glTranslatef(-1.4f, 0.35f, -4.50f);  // Posisi tiang kiri
     glScalef(0.1f, 0.7f, 0.1f);         // Ukuran tiang tipis vertikal
     glutSolidCube(1.0f);
     glPopMatrix();
     
     glPushMatrix();
-    glTranslatef(2.4f, 0.35f, -4.50f);  // Posisi tiang kanan
+    glTranslatef(1.4f, 0.35f, -4.50f);  // Posisi tiang kanan
     glScalef(0.1f, 0.7f, 0.1f);         // Ukuran tiang tipis vertikal
     glutSolidCube(1.0f);
     glPopMatrix();
@@ -659,20 +659,20 @@ void benchKanan() {
     // Gambar atap pelindung untuk bangku kanan
     glPushMatrix();
     glTranslatef(0.0f, 0.7f, 4.50f);  // Posisi atap di atas kursi kanan
-    glScalef(5.0f, 0.1f, 1.2f);      // Ukuran atap horizontal
+    glScalef(3.0f, 0.1f, 1.0f);      // Ukuran atap horizontal lebih kecil
     glutSolidCube(1.0f);
     glPopMatrix();
 
     // Gambar tiang kiri bangku kanan
     glPushMatrix();
-    glTranslatef(-2.4f, 0.35f, 4.50f);
+    glTranslatef(-1.4f, 0.35f, 4.50f);
     glScalef(0.1f, 0.7f, 0.1f);
     glutSolidCube(1.0f);
     glPopMatrix();
 
     // Gambar tiang kanan bangku kanan
     glPushMatrix();
-    glTranslatef(2.4f, 0.35f, 4.50f);
+    glTranslatef(1.4f, 0.35f, 4.50f);
     glScalef(0.1f, 0.7f, 0.1f);
     glutSolidCube(1.0f);
     glPopMatrix();
