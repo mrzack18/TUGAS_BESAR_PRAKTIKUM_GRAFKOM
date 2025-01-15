@@ -139,25 +139,19 @@ void lapangOut()
 void papanIklan()
 {
     glPushMatrix();
-    glColor3f(0.9,0.9,0.9);
+    glColor3f(0.7,0,0);
     glTranslatef(0,0.335,-4.255);
     glScalef(12.02,0.12,0.01);
     glutSolidCube(1);
     glPopMatrix();
-    // glPushMatrix();
-    // glColor3f(0.9,0.9,0.9);
-    // glTranslatef(0,0.335,4.255);
-    // glScalef(12.02,0.12,0.01);
-    // glutSolidCube(1);
-    // glPopMatrix();
     glPushMatrix();
-    glColor3f(0.9,0.9,0.9);
+    glColor3f(0.7,0,0);
     glTranslatef(-6.005,0.335,0);
     glScalef(0.01,0.12,8.5);
     glutSolidCube(1);
     glPopMatrix();
     glPushMatrix();
-    glColor3f(0.9,0.9,0.9);
+    glColor3f(0.7,0,0);
     glTranslatef(6.005,0.335,0);
     glScalef(0.01,0.12,8.5);
     glutSolidCube(1);
