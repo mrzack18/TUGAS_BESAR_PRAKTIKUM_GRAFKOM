@@ -332,13 +332,13 @@ void atapTribun(){
 void banchPemain(){
     glPushMatrix();
     glColor3f(0.8,0.8,0.8);
-    glTranslatef(3.92,0.44,-4.656);
+    glTranslatef(3.92,0.44,4.656);
     glScalef(2,0.3,0.2);
     glutSolidCube(1);
     glPopMatrix();
     glPushMatrix();
     glColor3f(0.8,0.8,0.8);
-    glTranslatef(-3.92,0.44,-4.656);
+    glTranslatef(-3.92,0.44,4.656);
     glScalef(2,0.3,0.2);
     glutSolidCube(1);
     glPopMatrix();
